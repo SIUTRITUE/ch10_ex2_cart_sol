@@ -1,6 +1,9 @@
 # Use Tomcat 10 with JDK 17
 FROM tomcat:10.1-jdk17-openjdk-slim
 
+# Install curl for health checks
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
 # Remove default webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
